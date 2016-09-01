@@ -11,7 +11,7 @@
     {
       "name" : "Flatten Selected Artwork",
       "identifier": "flatten",
-      "script" : "script.js",
+      "script" : "flattenSelectedArtwork.js",
       "handler" : "FlattenSelectedArtwork",
       "shortcut" : "cmd shift ;",
     }
