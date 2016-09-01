@@ -1,25 +1,25 @@
 {
+  "name": "Icon Toolbox",
+  "description" : "A set of tools for a perfect icon workflow in Sketch.",
   "author" : "Peter Berrecloth",
+  "homepage": "https://github.com/pberrecloth/icon-toolbox-sketch-plugin",
+  "version": "0.1",
+  "identifier" : "com.pberrecloth.icon-toolbox",
+  "compatibleVersion": "39.1",
+  "bundleVersion": 1,
   "commands" : [
     {
+      "name" : "Flatten Selected Artwork",
+      "identifier": "flatten",
       "script" : "script.js",
-      "name" : "IconFlattenerV1",
-      "handlers" : {
-        "run" : "onRun"
-      },
+      "handler" : "FlattenSelectedArtwork",
       "shortcut" : "cmd shift ;",
-      "identifier" : "com.bohemiancoding.sketch.runscriptidentifier"
     }
   ],
   "menu" : {
+    "title": "Icon Toolbox",
     "items" : [
-      "com.bohemiancoding.sketch.runscriptidentifier"
+      "flatten"
     ],
-    "title" : "IconFlattenerV1"
-  },
-  "identifier" : "com.example.sketch.0eb66022-49b5-4bdf-9086-1311369085dc",
-  "version" : "1.0",
-  "description" : "",
-  "authorEmail" : "",
-  "name" : "IconFlattenerV1"
+  }
 }
