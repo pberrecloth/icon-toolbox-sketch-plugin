@@ -1,4 +1,5 @@
-var onRun = function(context) {
+// Run
+var FlattenSelectedArtwork = function(context) {
 
   //reference the Sketch Document
   var sketch = context.api();
@@ -6,7 +7,7 @@ var onRun = function(context) {
   var page = doc.currentPage();
 
   //put within the main function so they can use variables
-  @import 'common.js'
+  @import 'common.js';
 
   // get what's selected
   var selection = context.selection;
@@ -47,7 +48,6 @@ var onRun = function(context) {
         processCount++;
   }
 
-
   // Unify dark and light channels separately
   batchProcess(darkChannel, union);
   batchProcess(lightChannel, union);
@@ -59,27 +59,7 @@ var onRun = function(context) {
   // Flatten combined shape irreducibly
   batchProcess(selection, flattenCombinedShape);
 
-
-
-  //slice(artwork);
-  //makeBounds();
-  //var boundingBox = selection.frame();
-
-
-    /*// Make rectangle
-    var rect = MSRectangleShape.alloc().init();
-    rect.frame = MSRect.rectWithRect(NSMakeRect(48, 48, 48, 48));
-    var shapeGroup = MSShapeGroup.shapeWithPath(rect);
-    var fill = shapeGroup.style().addStylePartOfType(0);
-    fill.color = MSColor.colorWithSVGString("#FF0000");
-
-    container = MSLayerGroup.new();
-    container.addLayers([shapeGroup]);
-    container.resizeToFitChildrenWithOption(0);
-    page.addLayers_([container]);
-*/
-
   // Done!
-  //notify("Processed " + processCount + " objects");
+  notify("Processed " + processCount + " layers");
   }
 };
