@@ -97,3 +97,20 @@ var artworkGroup = MSLayerGroup.new();
 
 artworkGroup.addLayers([artwork]);
 page.addLayers_([artworkGroup]);
+
+//slice(artwork);
+//makeBounds();
+//var boundingBox = selection.frame();
+
+
+  // Make rectangle
+  var rect = MSRectangleShape.alloc().init();
+  rect.frame = MSRect.rectWithRect(NSMakeRect(48, 48, 48, 48));
+  var shapeGroup = MSShapeGroup.shapeWithPath(rect);
+  var fill = shapeGroup.style().addStylePartOfType(0);
+  fill.color = MSColor.colorWithSVGString("#FF0000");
+
+  container = MSLayerGroup.new();
+  container.addLayers([shapeGroup]);
+  container.resizeToFitChildrenWithOption(0);
+  page.addLayers_([container]);
