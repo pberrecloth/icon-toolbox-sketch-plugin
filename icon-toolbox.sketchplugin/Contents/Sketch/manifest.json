@@ -1,0 +1,25 @@
+{
+  "author" : "Peter Berrecloth",
+  "commands" : [
+    {
+      "script" : "script.js",
+      "name" : "IconFlattenerV1",
+      "handlers" : {
+        "run" : "onRun"
+      },
+      "shortcut" : "cmd shift ;",
+      "identifier" : "com.bohemiancoding.sketch.runscriptidentifier"
+    }
+  ],
+  "menu" : {
+    "items" : [
+      "com.bohemiancoding.sketch.runscriptidentifier"
+    ],
+    "title" : "IconFlattenerV1"
+  },
+  "identifier" : "com.example.sketch.0eb66022-49b5-4bdf-9086-1311369085dc",
+  "version" : "1.0",
+  "description" : "",
+  "authorEmail" : "",
+  "name" : "IconFlattenerV1"
+}
