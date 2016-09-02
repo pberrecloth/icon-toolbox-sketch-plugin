@@ -14,6 +14,9 @@ In very early stages. Should allow when complete:
 - Auto-creation of Icon Font files using Grunt and Grunt-Web-Font
 
 
-Done so far:
+**Done so far**
+
+Flattens composite artwork down to its simplest form
 
 ![Flatten Selected Artwork](screenshots/flattenSelectedArtwork.gif?raw=true "Flatten Selected Artwork")
+![Flatten Selected Artwork](screenshots/flattenSelectedArtwork.gif?raw=true "Flatten Selected Artwork2")
