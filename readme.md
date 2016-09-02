@@ -28,3 +28,9 @@ Shortcut is (CMD+SHIFT+;)
 - Auto-symboling of icons
 - Batch export as optimized SVG files, PNG, etc
 - Auto-creation of Icon Font files using Grunt and Grunt-Web-Font
+
+
+**Download and install**
+
+1. [https://github.com/pberrecloth/icon-toolbox-sketch-plugin/archive/master.zip](Download ZIP)
+2. Open icon-toolbox.sketchplugin
