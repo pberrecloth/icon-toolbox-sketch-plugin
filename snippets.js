@@ -114,3 +114,27 @@ page.addLayers_([artworkGroup]);
   container.addLayers([shapeGroup]);
   container.resizeToFitChildrenWithOption(0);
   page.addLayers_([container]);
+
+
+// offsetY
+/*
+  // Set the offset position
+  var offsetMargin = 100;
+  var offsetY = objectHeight + offsetMargin;
+*/
+
+//[copyFrame setY:[objectFrame y] + offsetY];
+/*
+var bordered = layer.style().border().isEnabled();
+var filled = layer.style().fill().isEnabled();
+
+if (bordered && !filled){
+  flattenCombinedShape(layer);
+  outline(layer);
+} else if (bordered && filled) {
+  //clone layer, outline original, remove border on clone
+  //clone(layer);
+  //flattenCombinedShape(layer);
+  //outline(layer);
+  //toggleBorder(layerClone);
+}*/
