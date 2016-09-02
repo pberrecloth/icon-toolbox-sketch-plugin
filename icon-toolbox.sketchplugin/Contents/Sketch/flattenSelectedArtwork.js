@@ -56,8 +56,8 @@ var FlattenSelectedArtwork = function(context) {
 
         if (border && fill){
             //clone layer, remove border on clone, becomes the counter
-            clone(layer);
-            //toggleBorder(clonedLayer);
+            var clonedLayer = clone(layer);
+            toggleBorder(clonedLayer);
 
             //outline original layer
             flattenCombinedShape(layer);

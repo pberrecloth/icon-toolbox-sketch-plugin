@@ -7,6 +7,15 @@ function notify(message) {
   doc.showMessage(message);
 }
 function clone(layer){
+  // Clone layer
+  var clone = [layer duplicate];
+  var copyFrame = [clone frame];
+
+  log("cloned " + layer + " as " + clone);
+  return clone;
+
+}
+function cloneAndOffset(layer){
   // Get layer properties
   var layerFrame = layer.frame();
   var layerWidth = layerFrame.width();
@@ -17,14 +26,15 @@ function clone(layer){
   // Clone layer
   var clone = [layer duplicate];
   var copyFrame = [clone frame];
-  [copyFrame setY:[layerFrame y]];
+  //[copyFrame setY:[layerFrame y]];
 
-  //log("cloned" + layer);
+  log("cloned " + layer + " as " + clone);
   return clone;
   //var clonedlayerY = layerY + layerHeight + offsetAmount;
   //layerFrame.setX(newlayerX);
   //layerFrame.setY(clonedlayerY);
 }
+
 
 function checkChannel(color){
     if (color == "000000") {
