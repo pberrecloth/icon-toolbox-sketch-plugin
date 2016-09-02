@@ -68,7 +68,7 @@ function checkChannel(){
     } else if (color == "FFFFFF"){
       return 'light';
     } else {
-      alert("Icon Tools says:\nYour artwork contains mixed colors! \n ", "\nAll layers must be black or white in color. \n \n Your artwork will still be flattened, but non-black or white layers will be ignored.");
+      alert("Icon Toolbox says:\nYour artwork contains mixed colors!", "All layers must be black or white in color. Your artwork will still be flattened, but non-black and non-white layers will be ignored.");
       return 'mixed';
     }
 }
