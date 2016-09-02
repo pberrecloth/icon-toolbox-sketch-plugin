@@ -43,6 +43,18 @@ function slice() {
            sliceAction.insertSlice(nil)
        }
  }
+function toggleFill(){
+  var action = doc.actionsController().actionWithID("MSToggleFillAction");
+  if (action.validate()) {
+      action.toggleFill(nil)
+  }
+}
+function toggleBorder(){
+  var action = doc.actionsController().actionWithID("MSToggleBorderAction");
+  if (action.validate()) {
+      action.toggleBorder(nil)
+  }
+}
  function union(){
    // MSUnionAction will only union layers currently selected
    var unionAction = doc.actionsController().actionWithID("MSUnionAction");
@@ -72,20 +84,6 @@ function getBorderColor(layer){
    log(borderColor);
    return borderColor;
  }
- function convertBordersToFills(layer){
-    var bordered = layer.style().border().isEnabled();
-    var filled = layer.style().fill().isEnabled();
-    if (bordered && filled) {
-      //clone layer, outline original, remove border on clone
-      //clone(layer);
-      //flattenCombinedShape(layer);
-      //outline(layer);
-      //toggleBorder(layerClone);
-    } else if (bordered){
-      flattenCombinedShape(layer);
-      outline(layer);
-    }
-  }
 function batchProcess(selection, functionName){
   page.selectLayers(selection);
   for(var i = 0; i < selection.length; i++){
