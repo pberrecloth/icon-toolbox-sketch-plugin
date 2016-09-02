@@ -44,43 +44,44 @@ var FlattenSelectedArtwork = function(context) {
         var layer = selection[i];
 
         var fill = layer.style().fills().firstObject();
+        var fillColor = fill.color().hexValue();
+        var fillChannel = checkChannel(fillColor);
+
         var border = layer.style().borders().firstObject();
+        if (border){
+          var borderColor = border.color().hexValue();
+          var borderChannel = checkChannel(borderColor);
+        }
 
         if (border && fill){
-            //clone layer, outline original, remove border on clone, add both to channelizer
-
+            //clone layer, remove border on clone, becomes the counter
             clone(layer);
+            //toggleBorder(clonedLayer);
+
+            //outline original layer
             flattenCombinedShape(layer);
-            outline(layer);            
-            //toggleBorder(layerClone);
+            outline(layer);
+
+            //layer and clonedLayer will be batch processed as channels
+            
         }
 
         if (border){
           var bordered = border.isEnabled();
-          var borderColor = border.color().hexValue();
 
           if (bordered){
             flattenCombinedShape(layer);
             outline(layer);
+            groupLayersByChannel(borderChannel);
           }
         }
 
         if (fill){
           var filled = fill.isEnabled();
-          var fillColor = fill.color().hexValue();
 
-            if (filled){
-              // group layers into dark and light channels
-              var channel = checkChannel(fillColor);
-
-              if (channel == 'dark'){
-                darkChannel.push(layer);
-              } else if (channel == 'light'){
-                lightChannel.push(layer);
-              } else {
-                alert("Icon Toolbox says:\nYour artwork contains mixed colors!", "All layers must be black or white in color. Your artwork will still be flattened, but non-black or white layers will be ignored.");
-              }
-            }
+          if (filled){
+            groupLayersByChannel(fillChannel);
+          }
       }
         // Count the layers just for kicks
         processCount++;
