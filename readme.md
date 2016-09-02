@@ -12,3 +12,8 @@ In very early stages. Should allow when complete:
 - Auto-symboling of icons
 - Batch export as optimized SVG files, PNG, etc
 - Auto-creation of Icon Font files using Grunt and Grunt-Web-Font
+
+
+Done so far:
+
+![Flatten Selected Artwork](screenshots/flattenSelectedArtwork.gif?raw=true "Flatten Selected Artwork")
