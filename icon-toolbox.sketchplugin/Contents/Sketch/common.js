@@ -25,50 +25,7 @@ function clone(layer){
   //layerFrame.setX(newlayerX);
   //layerFrame.setY(clonedlayerY);
 }
-function flattenCombinedShape(layer) {
-       if(!layer.isKindOfClass(MSShapeGroup)) return;
-       // `flatten` method available only for MSShapeGroup class instances.
-      layer.flatten();
- }
-function outline() {
-       var outlineAction = doc.actionsController().actionWithID("MSConvertToOutlinesAction");
-       if (outlineAction.validate()) {
-           outlineAction.convertToOutlines(nil)
-       }
- }
 
-function slice() {
-       var sliceAction = doc.actionsController().actionWithID("MSInsertSliceAction");
-       if (sliceAction.validate()) {
-           sliceAction.insertSlice(nil)
-       }
- }
-function toggleFill(){
-  var action = doc.actionsController().actionWithID("MSToggleFillAction");
-  if (action.validate()) {
-      action.toggleFill(nil)
-  }
-}
-function toggleBorder(){
-  var action = doc.actionsController().actionWithID("MSToggleBorderAction");
-  if (action.validate()) {
-      action.toggleBorder(nil)
-  }
-}
- function union(){
-   // MSUnionAction will only union layers currently selected
-   var unionAction = doc.actionsController().actionWithID("MSUnionAction");
-   if (unionAction.validate()) {
-       unionAction.booleanUnion(nil)
-   }
- }
- function subtract(){
-   // MSUnionAction will only union layers currently selected
-   var subtractAction = doc.actionsController().actionWithID("MSSubtractAction");
-   if (subtractAction.validate()) {
-       subtractAction.booleanSubtract(nil)
-   }
- }
 function checkChannel(color){
     if (color == "000000") {
       return 'dark';

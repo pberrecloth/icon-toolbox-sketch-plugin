@@ -8,6 +8,7 @@ var FlattenSelectedArtwork = function(context) {
 
   //put within the main function so they can use variables
   @import 'common.js';
+  @import 'actionSheet.js';
 
   // get what's selected
   var selection = context.selection;
@@ -63,7 +64,7 @@ var FlattenSelectedArtwork = function(context) {
             outline(layer);
 
             //layer and clonedLayer will be batch processed as channels
-            
+
         }
 
         if (border){
