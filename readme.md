@@ -8,16 +8,20 @@ In very early stages.
 
 **Done so far**
 
-Flattens composite artwork down to its simplest form
+Flattens composite artwork down to its simplest form.
 
 ![Flatten Selected Artwork](screenshots/flattenSelectedArtwork2.gif?raw=true "Flatten Selected Artwork")
 
+This plugin takes vector layers in white and black then automates a unifying, subtracting and flattening process.
+
 ![Flatten Selected Artwork](screenshots/flattenSelectedArtwork.gif?raw=true "Flatten Selected Artwork")
 
+Shortcut is (CMD+SHIFT+;)
 
-**Upcoming Features:**
 
-- Batch flattening of artwork to vector shapes
+**Just the beginning, upcoming Features:**
+
+- Batch flattening of artwork to vector shapes - including borders
 - Batch simplification and rounding of paths
 - Batch placement on artboards
 - Auto-slicing of icons
