@@ -32,5 +32,5 @@ Shortcut is (CMD+SHIFT+;)
 
 **Download and install**
 
-1. [https://github.com/pberrecloth/icon-toolbox-sketch-plugin/archive/master.zip](Download ZIP)
+1. [Download ZIP](https://github.com/pberrecloth/icon-toolbox-sketch-plugin/archive/master.zip)
 2. Open icon-toolbox.sketchplugin
