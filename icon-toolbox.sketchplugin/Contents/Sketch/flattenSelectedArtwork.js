@@ -46,7 +46,16 @@ var FlattenSelectedArtwork = function(context) {
         var fill = layer.style().fills().firstObject();
         var border = layer.style().borders().firstObject();
 
-        if(border){
+        if (border && fill){
+            //clone layer, outline original, remove border on clone, add both to channelizer
+
+            clone(layer);
+            flattenCombinedShape(layer);
+            outline(layer);            
+            //toggleBorder(layerClone);
+        }
+
+        if (border){
           var bordered = border.isEnabled();
           var borderColor = border.color().hexValue();
 
