@@ -16,6 +16,7 @@ var FlattenSelectedArtwork = function(context) {
   if (selection.count() == 0){
     notify("Please select something.");
   } else {
+    //log(selection);
 
     // before batch process begins
     var processCount = 0;
@@ -24,29 +25,50 @@ var FlattenSelectedArtwork = function(context) {
     var darkChannel = [];
     var lightChannel = [];
 
+    // group the selection
+    // select the group
+    // loop within group, process.
+
+    /*
+    // convert borders to fills
+    batchProcess(selection, flattenCombinedShape);
+    batchProcess(selection, outline);
+
+    // bug: selection is not updating
+    var selection = context.selection;
+    log(selection);
+    */
 
     // if something is selected loop through
     for(var i = 0; i < selection.count(); i++){
-        var artwork = selection[i];
+        var layer = selection[i];
 
-        // clone the artwork
-        //var newArtwork = cloneArtwork(artwork);
+        var fill = layer.style().fills().firstObject();
+        var filled = fill.isEnabled();
+        var fillColor = fill.color().hexValue();
 
-        // convert to outlines
-        outlines(artwork);
+        var border = layer.style().borders().firstObject();
+        //bug:
+        //var borderColor = border.color().hexValue();
+        //var bordered = border.isEnabled();
 
-        // group layers into dark and light channels
-        var layerFillColor = checkChannel();
+        if (filled){
+          // group layers into dark and light channels
+          var channel = checkChannel(fillColor);
 
-        if (layerFillColor == 'dark'){
-          darkChannel.push(artwork);
-        } else if (layerFillColor == 'light'){
-          lightChannel.push(artwork);
+          if (channel == 'dark'){
+            darkChannel.push(layer);
+          } else if (channel == 'light'){
+            lightChannel.push(layer);
+          } else {
+            alert("Icon Toolbox says:\nYour artwork contains mixed colors!", "All layers must be black or white in color. Your artwork will still be flattened, but non-black or white layers will be ignored.");
+          }
         }
 
         // Count the layers just for kicks
         processCount++;
   }
+
 
   // Unify dark and light channels separately
   batchProcess(darkChannel, union);
@@ -58,6 +80,7 @@ var FlattenSelectedArtwork = function(context) {
 
   // Flatten combined shape irreducibly
   batchProcess(selection, flattenCombinedShape);
+
 
   // Done!
   notify("Processed " + processCount + " layers");
