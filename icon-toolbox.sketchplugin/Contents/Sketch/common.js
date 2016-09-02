@@ -19,7 +19,7 @@ function clone(layer){
   var copyFrame = [clone frame];
   [copyFrame setY:[layerFrame y]];
 
-  log("cloned" + layer);
+  //log("cloned" + layer);
   return clone;
   //var clonedlayerY = layerY + layerHeight + offsetAmount;
   //layerFrame.setX(newlayerX);
@@ -90,5 +90,15 @@ function batchProcess(selection, functionName){
     var layer = selection[i];
     // repeats given function for each layer in selection
     functionName(layer);
+  }
+}
+function groupLayersByChannel(channel){
+  // group layers into dark and light channels
+  if (channel == 'dark'){
+    darkChannel.push(layer);
+  } else if (channel == 'light'){
+    lightChannel.push(layer);
+  } else {
+    alert("Icon Toolbox says:\nYour artwork contains mixed colors!", "All layers must be black or white in color. Your artwork will still be flattened, but non-black or white layers will be ignored.");
   }
 }
