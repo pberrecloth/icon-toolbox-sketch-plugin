@@ -7,13 +7,11 @@ function notify(message) {
   doc.showMessage(message);
 }
 function clone(layer){
-  // Clone layer
-  var clone = [layer duplicate];
-  var copyFrame = [clone frame];
+  var clone = layer.duplicate();
+  //var cloneFrame = [clone frame];
 
   log("cloned " + layer + " as " + clone);
   return clone;
-
 }
 function cloneAndOffset(layer){
   // Get layer properties

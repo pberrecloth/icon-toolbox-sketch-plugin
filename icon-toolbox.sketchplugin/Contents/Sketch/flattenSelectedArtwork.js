@@ -55,13 +55,15 @@ var FlattenSelectedArtwork = function(context) {
         }
 
         if (border && fill){
-            //clone layer, remove border on clone, becomes the counter
+            //clone layer, remove border on clone, becomes the counter layer
             var clonedLayer = clone(layer);
-            toggleBorder(clonedLayer);
+            log(clonedLayer);
 
             //outline original layer
             flattenCombinedShape(layer);
             outline(layer);
+
+            //toggleBorder(clonedLayer); // Bug: won't work, probably needs to be re-run next time
 
             //layer and clonedLayer will be batch processed as channels
 
