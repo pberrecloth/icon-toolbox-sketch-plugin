@@ -32,8 +32,6 @@ function cloneAndOffset(layer){
   //layerFrame.setX(newlayerX);
   //layerFrame.setY(clonedlayerY);
 }
-
-
 function checkChannel(color){
     if (color == "000000") {
       return 'dark';
@@ -57,12 +55,14 @@ function batchProcess(selection, functionName){
     functionName(layer);
   }
 }
-function groupLayersByChannel(channel){
+function addLayerToChannelBatch(channel){
   // group layers into dark and light channels
   if (channel == 'dark'){
     darkChannel.push(layer);
+    log('added to darkChannel');
   } else if (channel == 'light'){
     lightChannel.push(layer);
+    log('added to lightChannel');
   } else {
     alert("Icon Toolbox says:\nYour artwork contains mixed colors!", "All layers must be black or white in color. Your artwork will still be flattened, but non-black or white layers will be ignored.");
   }
