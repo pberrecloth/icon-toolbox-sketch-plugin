@@ -138,3 +138,41 @@ if (bordered && !filled){
   //outline(layer);
   //toggleBorder(layerClone);
 }*/
+
+
+
+
+// Clone and combined method for bordered && filled shapes - unsatisfctory resultes
+if (border && fill){
+    //clone layer, remove border on clone, becomes the counter layer
+    var clonedLayer = clone(layer);
+    log("clonedLayer" + clonedLayer);
+
+    counterLayers.push(clonedLayer); //toggleBorder will be applied;
+
+    //outline original layer
+    flattenCombinedShape(layer);
+    outline(layer);
+
+    /*
+      //Batches
+      //outlines will need to be recombined with their counters later to make solid fill shapes
+      if (fillChannel == fillColor){
+        //group pair in array, add array to a 'subtract' batch
+      }
+
+
+    */
+    //layer and clonedLayer will be batch processed as channels
+
+}
+
+
+/* Old flatten function for reference - this can be applied to my designated layer, not just the selection
+function flattenCombinedShape(layer) {
+   if(!layer.isKindOfClass(MSShapeGroup)) return;
+       // `flatten` method available only for MSShapeGroup class instances.
+   layer.flatten();
+ }*/
+
+f
