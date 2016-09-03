@@ -10,11 +10,13 @@ action(actionName){
 }
  */
  function flattenCombinedShape(layer) {
-        if(!layer.isKindOfClass(MSShapeGroup)) return;
-        // `flatten` method available only for MSShapeGroup class instances.
-       layer.flatten();
+  if(!layer.isKindOfClass(MSShapeGroup)) return;
+  var action = doc.actionsController().actionWithID("MSFlattenAction");
+  if (action.validate()) {
+      action.flatten(nil)
   }
- function outline() {
+}
+function outline() {
     var action = doc.actionsController().actionWithID("MSConvertToOutlinesAction");
     if (action.validate()) {
         action.convertToOutlines(nil)
