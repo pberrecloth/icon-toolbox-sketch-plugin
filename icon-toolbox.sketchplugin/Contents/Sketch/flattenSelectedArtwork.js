@@ -17,28 +17,12 @@ var FlattenSelectedArtwork = function(context) {
   if (selection.count() == 0){
     notify("Please select something.");
   } else {
-    //log(selection);
-
     // before batch process begins
     var processCount = 0;
 
     // layers that will be processed separately
     var darkChannel = [];
     var lightChannel = [];
-
-    // group the selection
-    // select the group
-    // loop within group, process.
-
-    /*
-    // convert borders to fills
-    batchProcess(selection, flattenCombinedShape);
-    batchProcess(selection, outline);
-
-    // bug: selection is not updating
-    var selection = context.selection;
-    log(selection);
-    */
 
     // if something is selected loop through
     for(var i = 0; i < selection.count(); i++){
