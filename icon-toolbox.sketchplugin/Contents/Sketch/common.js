@@ -10,7 +10,7 @@ function clone(layer){
   var clone = layer.duplicate();
   //var cloneFrame = [clone frame];
 
-  log("cloned " + layer + " as " + clone);
+  //log("cloned " + layer + " as " + clone);
   return clone;
 }
 function cloneAndOffset(layer){
@@ -26,7 +26,7 @@ function cloneAndOffset(layer){
   var copyFrame = [clone frame];
   //[copyFrame setY:[layerFrame y]];
 
-  log("cloned " + layer + " as " + clone);
+  //log("cloned " + layer + " as " + clone);
   return clone;
   //var clonedlayerY = layerY + layerHeight + offsetAmount;
   //layerFrame.setX(newlayerX);
@@ -59,10 +59,10 @@ function addLayerToChannelBatch(channel){
   // group layers into dark and light channels
   if (channel == 'dark'){
     darkChannel.push(layer);
-    log('added to darkChannel');
+    //log('added to darkChannel');
   } else if (channel == 'light'){
     lightChannel.push(layer);
-    log('added to lightChannel');
+    //log('added to lightChannel');
   } else {
     alert("Icon Toolbox says:\nYour artwork contains mixed colors!", "All layers must be black or white in color. Your artwork will still be flattened, but non-black or white layers will be ignored.");
   }

@@ -36,16 +36,14 @@ var FlattenSelectedArtwork = function(context) {
         //var fillChannel = checkChannel(fillColor);
         var border = layer.style().borders().firstObject();
         if (border){
-          log ('border found');
           var bordered = border.isEnabled();
           var borderColor = border.color().hexValue();
-          //var borderChannel = checkChannel(borderColor);
         } else {
           var bordered = false;
         }
 
         if (bordered && filled){
-          log('processing borderd && filled: ' + layer);
+          //log('processing borderd && filled: ' + layer);
             //outline(layer);
             if (fillColor == borderColor){
             //1. in resulting layerGroup, set child layers to Union
@@ -53,12 +51,13 @@ var FlattenSelectedArtwork = function(context) {
             }
         } else {
           if (bordered){
-            log('processing bordered: ' + layer);
+            //log('processing bordered: ' + layer);
               var channel = checkChannel(borderColor);
               outline(layer);
-              addLayerToChannelBatch(channel);
+              //addLayerToChannelBatch(channel);
+              outlinedLayers.push(layer);
           } else if (filled){
-            log('processing filled: ' + layer);
+            //log('processing filled: ' + layer);
               var channel = checkChannel(fillColor);
               addLayerToChannelBatch(channel);
           }
@@ -67,22 +66,19 @@ var FlattenSelectedArtwork = function(context) {
       processCount++;
   }
 
+  // Unify outlined layers
+  batchProcess(outlinedLayers, union);
 
   // Unify dark and light channels separately
-
-  log ('darkChannel: ' + darkChannel);
-  log ('lightChannel: ' + lightChannel);
   batchProcess(darkChannel, union);
   batchProcess(lightChannel, union);
 
   // Subtract the two channels
   var bothChannels = darkChannel.concat(lightChannel); // Selects both channels
   batchProcess(bothChannels, subtract);
-  log('selection after subtract: ' + selection);
 
   // Flatten combined shape irreducibly
   batchProcess(selection, flattenCombinedShape);
-  log('selection after flatten: ' + selection);
 
   // Done!
   notify("Processed " + processCount + " layers");
