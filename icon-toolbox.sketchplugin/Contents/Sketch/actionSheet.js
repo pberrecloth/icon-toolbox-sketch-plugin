@@ -1,25 +1,15 @@
-// contains actions from Sketch menus
-
-/*
-//will one day simplify these to one function
-action(actionName){
-  var action = doc.actionsController().actionWithID("MS" + actionName + "Action");
-  if (action.validate()) {
-      action.actionName(nil)
-  }
-}
- */
- function flattenCombinedShape(layer) {
+function flattenCombinedShape(layer) {
   if(!layer.isKindOfClass(MSShapeGroup)) return;
   var action = doc.actionsController().actionWithID("MSFlattenAction");
   if (action.validate()) {
       action.flattenIgnoringWarning() // suppresses the warning dialog that appears when flattening
   }
+
 }
 function outline() {
     var action = doc.actionsController().actionWithID("MSConvertToOutlinesAction");
     if (action.validate()) {
-        action.convertToOutlines(nil)
+      action.convertToOutlines(nil);
     }
   }
  function slice() {
