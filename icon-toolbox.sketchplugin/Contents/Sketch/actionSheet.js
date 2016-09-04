@@ -44,3 +44,10 @@ function outline() {
         action.booleanSubtract(nil)
     }
   }
+  function groupLayers(){
+    // MSSubtractAction will only union layers currently selected
+    var action = doc.actionsController().actionWithID("MSGroupAction");
+    if (action.validate()) {
+        action.group(nil)
+    }
+  }
