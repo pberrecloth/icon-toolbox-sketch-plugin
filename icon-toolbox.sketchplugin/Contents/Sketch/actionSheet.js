@@ -13,7 +13,7 @@ action(actionName){
   if(!layer.isKindOfClass(MSShapeGroup)) return;
   var action = doc.actionsController().actionWithID("MSFlattenAction");
   if (action.validate()) {
-      action.flatten(nil)
+      action.flattenIgnoringWarning() // suppresses the warning dialog that appears when flattening
   }
 }
 function outline() {
