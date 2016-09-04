@@ -45,9 +45,14 @@ function outline() {
     }
   }
   function groupLayers(){
-    // MSSubtractAction will only union layers currently selected
     var action = doc.actionsController().actionWithID("MSGroupAction");
     if (action.validate()) {
         action.group(nil)
+    }
+  }
+  function InsertSliceAction(){
+    var action = doc.actionsController().actionWithID("MSInsertSliceAction");
+    if (action.validate()) {
+        action.insertSlice(nil)
     }
   }

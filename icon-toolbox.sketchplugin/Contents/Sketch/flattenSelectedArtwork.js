@@ -15,6 +15,9 @@ var FlattenSelectedArtwork = function(context) {
 
   // check something is selected
   if (selection.count() == 0){
+
+    
+
     notify("Please select something.");
   } else {
     // before batch process begins
@@ -79,6 +82,7 @@ var FlattenSelectedArtwork = function(context) {
 
   // Flatten combined shape irreducibly
   batchProcess(selection, flattenCombinedShape);
+
 
   // Done!
   notify("Processed " + processCount + " layers");
