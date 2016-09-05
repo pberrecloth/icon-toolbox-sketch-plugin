@@ -9,15 +9,13 @@ var FlattenSelectedArtwork = function(context) {
   //put within the main function so they can use variables
   @import 'common.js';
   @import 'actionSheet.js';
+  @import 'insertActions.js';
 
   // get what's selected
   var selection = context.selection;
 
   // check something is selected
   if (selection.count() == 0){
-
-    
-
     notify("Please select something.");
   } else {
     // before batch process begins
