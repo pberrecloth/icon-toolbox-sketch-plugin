@@ -64,6 +64,6 @@ function addLayerToChannelBatch(channel){
     lightChannel.push(layer);
     //log('added to lightChannel');
   } else {
-    alert("Icon Toolbox says:\nYour artwork contains mixed colors!", "All layers must be black or white in color. Your artwork will still be flattened, but non-black or white layers will be ignored.");
+    alert("Icon Toolbox says:\nYour artwork contains mixed colors!", "Your artwork will still be flattened, but non-black or white layers will be ignored.");
   }
 }
