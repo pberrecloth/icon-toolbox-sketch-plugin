@@ -10,6 +10,7 @@ var FlattenSelectedArtwork = function(context) {
   @import 'common.js';
   @import 'actionSheet.js';
   @import 'insertActions.js';
+  @import 'variables.js';
 
   // get what's selected
   var selection = context.selection;

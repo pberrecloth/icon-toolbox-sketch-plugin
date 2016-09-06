@@ -14,6 +14,12 @@
       "script" : "flattenSelectedArtwork.js",
       "handler" : "FlattenSelectedArtwork",
       "shortcut" : "cmd shift ;",
+    },
+    {
+      "name" : "Create artboards",
+      "identifier": "createArtboards",
+      "script" : "createArtboards.js",
+      "handler" : "createArtboards",
     }
   ],
   "menu" : {

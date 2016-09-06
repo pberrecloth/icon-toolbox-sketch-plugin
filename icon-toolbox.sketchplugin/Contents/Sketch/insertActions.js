@@ -1,12 +1,9 @@
 // Mostly functions used to create new objects and layers
 
-function createNewArtboard(){
-  var doc = context.document;
-  var page = [doc currentPage];
-
-  var layer = MSArtboardGroup.alloc().initWithFrame_(NSMakeRect(0, 0, 100, 100));
-  page.addLayers_([layer])
-  doc.currentView().centerRect_(layer.rect())
+function createNewArtboard(artboardX, artboardY, artboardSize){
+  var layer = MSArtboardGroup.alloc().initWithFrame_(NSMakeRect(artboardX, artboardY, artboardSize, artboardSize));
+  page.addLayers_([layer]);
+  doc.currentView().centerRect_(layer.rect());
 }
 function createNewGroup(layers){
   //delete layers first
