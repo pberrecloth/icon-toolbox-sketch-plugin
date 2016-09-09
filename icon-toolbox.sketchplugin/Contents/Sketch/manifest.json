@@ -12,19 +12,27 @@
       "name" : "Flatten Selected Artwork",
       "identifier": "flatten",
       "script" : "flattenSelectedArtwork.js",
-      "handler" : "FlattenSelectedArtwork",
+      "handler" : "flattenSelectedArtwork",
       "shortcut" : "cmd shift ;",
     },
     {
-      "name" : "Create artboards",
+      "name" : "Create Artboards For Selection",
       "identifier": "createArtboards",
       "script" : "createArtboards.js",
       "handler" : "createArtboards",
+    },
+    {
+      "name" : "Slice Selection",
+      "identifier": "sliceSelection",
+      "script" : "sliceSelection.js",
+      "handler" : "sliceSelection",
     }
   ],
   "menu" : {
     "title": "Icon Toolbox",
     "items" : [
+      "sliceSelection",
+      "createArtboards",
       "flatten"
     ],
   }
