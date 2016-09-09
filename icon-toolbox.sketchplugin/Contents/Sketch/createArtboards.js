@@ -11,14 +11,17 @@ var createArtboards = function(context) {
 
     // get what's selected
     var selection = context.selection;
+    var processCount = 0;
 
     // check something is selected
     if (selection.count() == 0){
       notify("Please select something.");
-    } else {
-      // before batch process begins
-      var processCount = 0;
 
+      var size = askForUserInput('Please set artboard size', '24');
+      createNewArtboard(30, 30, size, size);
+
+      processCount++;
+    } else {
       // if something is selected loop through
       for(var i = 0; i < selection.count(); i++){
           var layer = selection[i];
@@ -38,5 +41,5 @@ var createArtboards = function(context) {
     }
 
     // Done!
-    notify("Sliced " + processCount + " layers");
+    notify("Made " + processCount + " artboards");
   };
