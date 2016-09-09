@@ -3,10 +3,11 @@
 function createNewArtboard(X, Y, width, height){
   var layer = MSArtboardGroup.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
   page.addLayers_([layer]);
-  doc.currentView().centerRect_(layer.rect());
+  //doc.currentView().centerRect_(layer.rect());
 }
 function createNewSlice(X, Y, width, height){
   var layer = MSSliceLayer.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
+  //layer.AddExportFormat('svg'); //doesn't work
   page.addLayers_([layer]);
 }
 function createNewGroup(layers){
