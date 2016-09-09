@@ -66,6 +66,7 @@ Employ Grunt and Grunt-webfont to make webfont
 
 **Version 4 features**
 
+Auto-install of icon font (using a symlink?) then auto-preview in sketch
 Icon font browser for Sketch?
 Craft integration?
 
