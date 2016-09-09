@@ -4,18 +4,11 @@ function flattenCombinedShape(layer) {
   if (action.validate()) {
       action.flattenIgnoringWarning() // suppresses the warning dialog that appears when flattening
   }
-
 }
 function outline() {
     var action = doc.actionsController().actionWithID("MSConvertToOutlinesAction");
     if (action.validate()) {
       action.convertToOutlines(nil);
-    }
-  }
- function slice() {
-    var action = doc.actionsController().actionWithID("MSInsertSliceAction");
-    if (action.validate()) {
-        action.insertSlice(nil)
     }
   }
  function toggleFill(){
@@ -50,13 +43,6 @@ function outline() {
         action.group(nil)
     }
   }
-  function InsertSliceAction(){
-    var action = doc.actionsController().actionWithID("MSInsertSliceAction");
-    if (action.validate()) {
-        action.insertSlice(nil)
-    }
-  }
-
   function convertTextToOutlines(layer) {
       if(!layer.isKindOfClass(MSTextLayer)) return;
 

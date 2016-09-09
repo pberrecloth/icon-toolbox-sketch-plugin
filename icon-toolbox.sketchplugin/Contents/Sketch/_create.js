@@ -1,12 +1,16 @@
-// Mostly functions used to create new objects and layers
+// Functions that create new objects and layers
 
-function createNewArtboard(artboardX, artboardY, artboardSize){
-  var layer = MSArtboardGroup.alloc().initWithFrame_(NSMakeRect(artboardX, artboardY, artboardSize, artboardSize));
+function createNewArtboard(X, Y, size){
+  var layer = MSArtboardGroup.alloc().initWithFrame_(NSMakeRect(X, Y, size, size));
   page.addLayers_([layer]);
   doc.currentView().centerRect_(layer.rect());
 }
+function createNewSlice(X, Y, size){
+  var layer = MSSliceLayer.alloc().initWithFrame_(NSMakeRect(X, Y, size, size));
+  page.addLayers_([layer]);
+}
 function createNewGroup(layers){
-  //delete layers first
+  //delete layers first (quite buggy)
   page.removeLayer(layers);
 
   container = MSLayerGroup.new();

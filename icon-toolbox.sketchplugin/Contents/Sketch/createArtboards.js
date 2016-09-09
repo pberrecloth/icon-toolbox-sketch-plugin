@@ -6,11 +6,8 @@ var createArtboards = function(context) {
   var doc = context.document;
   var page = doc.currentPage();
 
-  //put within the main function so they can use variables
-  @import 'common.js';
-  @import 'actionSheet.js';
-  @import 'insertActions.js';
-  @import 'variables.js';
+  // Include dependencies
+  @import 'includes.js';
 
   //sets up two new artboards for now, will have dialog for size/quantity options?
   //will also need auto-placement and sizing if artwork is selected
