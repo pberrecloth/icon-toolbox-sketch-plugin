@@ -31,7 +31,7 @@ var sliceSelection = function(context) {
 
         // Make slice around layer
         createNewSlice(layerX, layerY, layerWidth, layerHeight);
-
+        
         processCount++;
     }
   }
