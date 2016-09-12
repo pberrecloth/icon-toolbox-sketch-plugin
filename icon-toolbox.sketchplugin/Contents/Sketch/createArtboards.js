@@ -17,7 +17,6 @@ var createArtboards = function(context) {
     if (selection.count() == 0){
       var options = [24, 48]
       var userInput = createSelect('Set artboard size', options, 0)
-      log(userInput);
       var responseCode = userInput.responseCode;
 
       if (responseCode == NSAlertFirstButtonReturn) {
