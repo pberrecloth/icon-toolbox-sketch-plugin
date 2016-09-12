@@ -31,9 +31,9 @@
   "menu" : {
     "title": "Icon Toolbox",
     "items" : [
-      "sliceSelection",
+      "flatten",
       "createArtboards",
-      "flatten"
+      "sliceSelection"
     ],
   }
 }
