@@ -16,7 +16,7 @@
       "shortcut" : "cmd shift ;",
     },
     {
-      "name" : "Create Artboards For Selection",
+      "name" : "Create Artboards",
       "identifier": "createArtboards",
       "script" : "createArtboards.js",
       "handler" : "createArtboards",

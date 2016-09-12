@@ -15,12 +15,17 @@ var createArtboards = function(context) {
 
     // check something is selected
     if (selection.count() == 0){
-      notify("Please select something.");
+      var options = [24, 48]
+      var userInput = createSelect('Set artboard size', options, 0)
+      log(userInput);
+      var responseCode = userInput.responseCode;
 
-      var size = askForUserInput('Please set artboard size', '24');
-      createNewArtboard(30, 30, size, size);
+      if (responseCode == NSAlertFirstButtonReturn) {
+        var size = userInput.value;
+        createNewArtboard(30, 30, size, size);
+        processCount++;
+      }
 
-      processCount++;
     } else {
       // if something is selected loop through
       for(var i = 0; i < selection.count(); i++){
