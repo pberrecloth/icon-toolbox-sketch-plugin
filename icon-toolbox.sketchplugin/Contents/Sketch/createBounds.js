@@ -38,7 +38,7 @@ var createBounds = function(context) {
           var layerY = layerFrame.y();
 
           // Make slice around layer
-          createNewBounds(layerX, layerY, layerWidth, layerHeight);
+          createNewBounds(layerX, layerY, layerWidth, layerHeight, layer);
 
           processCount++;
       }

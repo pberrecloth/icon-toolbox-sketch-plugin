@@ -5,11 +5,17 @@ function createNewArtboard(X, Y, width, height){
   page.addLayers_([layer]);
   //doc.currentView().centerRect_(layer.rect());
 }
-function createNewBounds(X, Y, width, height){
+function createNewBounds(X, Y, width, height, selection){
+  if(selection) {
+    var parent = selection.parentGroup();
+  } else {
+    var parent = page;
+  }
+
   var rect = MSRectangleShape.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
   var layer = MSShapeGroup.shapeWithPath(rect);
   layer.style().addStylePartOfType(0);
-  page.addLayers_([layer]);
+  parent.addLayers_([layer]);
 
   layer.style().removeAllStyleFills();
 
@@ -19,7 +25,7 @@ function createNewBounds(X, Y, width, height){
 }
 function createNewSlice(X, Y, width, height, selection){
   if(selection) {
-    var parent=selection.parentGroup();
+    var parent = selection.parentGroup();
   } else {
     var parent = page;
   }
@@ -29,13 +35,13 @@ function createNewSlice(X, Y, width, height, selection){
   parent.addLayers_([layer]);
 }
 function createNewGroup(layers){
-  //delete layers first (quite buggy)
-  page.removeLayer(layers);
-
   container = MSLayerGroup.new();
   container.addLayers(layers);
   container.resizeToFitChildrenWithOption(0);
   page.addLayers_([container]);
+
+  page.removeLayer(layers);
+
 }
 function createNewTextLayer(){
   // create new text layer
