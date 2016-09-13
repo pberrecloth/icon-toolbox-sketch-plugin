@@ -25,12 +25,6 @@ function outline() {
         action.booleanSubtract(nil)
     }
   }
-  function groupLayers(){
-    var action = doc.actionsController().actionWithID("MSGroupAction");
-    if (action.validate()) {
-        action.group(nil)
-    }
-  }
   function convertTextToOutlines(layer) {
       if(!layer.isKindOfClass(MSTextLayer)) return;
 

@@ -61,3 +61,9 @@ function addLayerToChannelBatch(channel){
     alert("Icon Toolbox says:\nYour artwork contains mixed colors!", "Your artwork will still be flattened, but non-black or white layers will be ignored.");
   }
 }
+function groupLayers(){
+  var action = doc.actionsController().actionWithID("MSGroupAction");
+  if (action.validate()) {
+      action.group(nil)
+  }
+}
