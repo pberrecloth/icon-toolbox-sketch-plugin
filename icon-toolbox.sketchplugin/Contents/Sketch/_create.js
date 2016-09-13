@@ -5,6 +5,18 @@ function createNewArtboard(X, Y, width, height){
   page.addLayers_([layer]);
   //doc.currentView().centerRect_(layer.rect());
 }
+function createNewBounds(X, Y, width, height){
+  var rect = MSRectangleShape.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
+  var layer = MSShapeGroup.shapeWithPath(rect);
+  layer.style().addStylePartOfType(0);
+  page.addLayers_([layer]);
+
+  layer.style().removeAllStyleFills();
+
+  var name = "bounds";
+  [layer setName:name];
+
+}
 function createNewSlice(X, Y, width, height){
   var layer = MSSliceLayer.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
   //layer.AddExportFormat('svg'); //doesn't work
