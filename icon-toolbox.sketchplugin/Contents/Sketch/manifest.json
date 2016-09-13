@@ -22,6 +22,12 @@
       "handler" : "createArtboards",
     },
     {
+      "name" : "Create Bounds",
+      "identifier": "createBounds",
+      "script" : "createBounds.js",
+      "handler" : "createBounds",
+    },
+    {
       "name" : "Slice Selection",
       "identifier": "sliceSelection",
       "script" : "sliceSelection.js",
@@ -32,6 +38,7 @@
     "title": "Icon Toolbox",
     "items" : [
       "flatten",
+      "createBounds",
       "createArtboards",
       "sliceSelection"
     ],
