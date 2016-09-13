@@ -30,12 +30,11 @@ var sliceSelection = function(context) {
         var layerY = layerFrame.y();
 
         // Make slice around layer
-        createNewSlice(layerX, layerY, layerWidth, layerHeight);
-        
+        createNewSlice(layerX, layerY, layerWidth, layerHeight, layer);
+
         processCount++;
     }
+    // Done!
+    notify("Sliced " + processCount + " layers");
   }
-
-  // Done!
-  notify("Sliced " + processCount + " layers");
 };

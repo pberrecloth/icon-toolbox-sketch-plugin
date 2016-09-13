@@ -17,10 +17,16 @@ function createNewBounds(X, Y, width, height){
   [layer setName:name];
 
 }
-function createNewSlice(X, Y, width, height){
+function createNewSlice(X, Y, width, height, selection){
+  if(selection) {
+    var parent=selection.parentGroup();
+  } else {
+    var parent = page;
+  }
+
   var layer = MSSliceLayer.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
   //layer.AddExportFormat('svg'); //doesn't work
-  page.addLayers_([layer]);
+  parent.addLayers_([layer]);
 }
 function createNewGroup(layers){
   //delete layers first (quite buggy)
