@@ -11,18 +11,6 @@ function outline() {
       action.convertToOutlines(nil);
     }
   }
- function toggleFill(){
-   var action = doc.actionsController().actionWithID("MSToggleFillAction");
-   if (action.validate()) {
-       action.toggleFill(nil)
-   }
- }
- function toggleBorder(){
-   var action = doc.actionsController().actionWithID("MSToggleBorderAction");
-   if (action.validate()) {
-       action.toggleBorder(nil)
-   }
- }
   function union(){
     // MSUnionAction will only union layers currently selected
     var action = doc.actionsController().actionWithID("MSUnionAction");

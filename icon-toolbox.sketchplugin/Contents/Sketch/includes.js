@@ -5,4 +5,5 @@
 @import '_booleans.js';
 @import '_create.js';
 @import '_dialogs.js';
+@import '_style.js';
 @import '_view.js';
