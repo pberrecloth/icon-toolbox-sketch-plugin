@@ -26,21 +26,27 @@ var createBounds = function(context) {
       }
 
     } else {
-      // if something is selected loop through
-      for(var i = 0; i < selection.count(); i++){
-          var layer = selection[i];
 
-          // Get layer properties
-          var layerFrame = layer.frame();
-          var layerWidth = layerFrame.width();
-          var layerHeight = layerFrame.height();
-          var layerX = layerFrame.x();
-          var layerY = layerFrame.y();
+      // If more than one layer is selected give the option of bounding individually or collectively
+      if (selection.count() >= 2){
+        var userInput = createDialogYesNo(
+          'You have more than one layer selected. Create bounds for individual layers or as a group?',
 
-          // Make slice around layer
-          createNewBounds(layerX, layerY, layerWidth, layerHeight, layer);
+          'Create Bounds As Group',
+          'Create Bounds Individually'
+        );
 
+        var responseCode = userInput.responseCode;
+
+        if (responseCode == NSAlertFirstButtonReturn) {
+          var bounds = MSLayerGroup.groupBoundsForLayers(selection);
+          createNewBounds(bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height);
           processCount++;
+        } else {
+          createBoundsIndividually();
+        }
+      } else {
+        createBoundsIndividually();
       }
     }
 

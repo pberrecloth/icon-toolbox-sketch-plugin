@@ -7,10 +7,10 @@ function createNewArtboard(X, Y, width, height){
 }
 function createNewBounds(X, Y, width, height, selection){
   if(selection) {
+    // would be nice if the selection is an artboard then the bounds go inside it
+    //if (selection.type == 'MSArtboardGroup') { var parent = selection; } else {  var parent = selection.parentGroup(); }
     var parent = selection.parentGroup();
-  } else {
-    var parent = page;
-  }
+  } else { var parent = page; }
 
   var rect = MSRectangleShape.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
   var layer = MSShapeGroup.shapeWithPath(rect);
@@ -21,6 +21,7 @@ function createNewBounds(X, Y, width, height, selection){
 
   var name = "bounds";
   [layer setName:name];
+  // TODO: Once created, move the bounds layer below the selected layer
 
 }
 function createNewSlice(X, Y, width, height, selection){
