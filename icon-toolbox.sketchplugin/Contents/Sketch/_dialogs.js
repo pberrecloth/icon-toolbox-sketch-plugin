@@ -35,3 +35,14 @@ function createSelect(msg, items, selectedItemIndex){
     value: value
   };
 }
+function createDialogYesNo(msg, button1Text, button2Text ){
+  var alert = NSAlert.alloc().init()
+  alert.setMessageText(msg)
+  alert.addButtonWithTitle(button1Text)
+  alert.addButtonWithTitle(button2Text)
+
+  var responseCode = alert.runModal()
+  return {
+    responseCode: responseCode
+  };
+}
