@@ -56,3 +56,20 @@ function createNewTextLayer(){
   page.addLayers_([layer])
   doc.currentView().centerRect_(layer.rect())
 }
+function createBoundsIndividually(){
+  for(var i = 0; i < selection.count(); i++){
+      var layer = selection[i];
+
+      // Get layer properties
+      var layerFrame = layer.frame();
+      var layerWidth = layerFrame.width();
+      var layerHeight = layerFrame.height();
+      var layerX = layerFrame.x();
+      var layerY = layerFrame.y();
+
+      // Make slice around layer
+      createNewBounds(layerX, layerY, layerWidth, layerHeight, layer);
+
+      processCount++;
+  }
+}
