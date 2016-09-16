@@ -35,7 +35,7 @@
     }
   ],
   "menu" : {
-    "title": "Icon Toolbox",
+    "title": "🔨 Icon Toolbox",
     "items" : [
       "flatten",
       "createBounds",
