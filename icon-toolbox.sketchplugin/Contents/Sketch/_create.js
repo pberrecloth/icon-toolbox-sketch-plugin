@@ -7,7 +7,7 @@ function createNewArtboard(X, Y, width, height){
 }
 function createNewBounds(X, Y, width, height, selection){
   if(selection) {
-    // would be nice if the selection is an artboard then the bounds go inside it
+    // TO DO - would be nice if the selection is an artboard then the bounds go inside it
     //if (selection.type == 'MSArtboardGroup') { var parent = selection; } else {  var parent = selection.parentGroup(); }
     var parent = selection.parentGroup();
   } else { var parent = page; }
@@ -21,7 +21,7 @@ function createNewBounds(X, Y, width, height, selection){
 
   var name = "bounds";
   [layer setName:name];
-  // TODO: Once created, move the bounds layer below the selected layer
+  // TO DO - Once created, move the bounds layer below the selected layer
 
 }
 function createNewSlice(X, Y, width, height, selection){
@@ -30,12 +30,12 @@ function createNewSlice(X, Y, width, height, selection){
   } else {
     var parent = page;
   }
-
   var layer = MSSliceLayer.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
   //layer.AddExportFormat('svg'); //doesn't work
   parent.addLayers_([layer]);
 }
 function createNewGroup(layers){
+  // Doesn't work yet
   container = MSLayerGroup.new();
   container.addLayers(layers);
   container.resizeToFitChildrenWithOption(0);

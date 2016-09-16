@@ -39,10 +39,12 @@ var createBounds = function(context) {
         var responseCode = userInput.responseCode;
 
         if (responseCode == NSAlertFirstButtonReturn) {
+          // Bounds layers as a group
           var bounds = MSLayerGroup.groupBoundsForLayers(selection);
-          createNewBounds(bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height);
+          createNewBounds(bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height, selection[0]);
           processCount++;
         } else {
+          // Bound layers individually
           createBoundsIndividually();
         }
       } else {
