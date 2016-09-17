@@ -23,6 +23,8 @@ function createSelect(msg, items, selectedItemIndex){
   alert.addButtonWithTitle('OK')
   alert.addButtonWithTitle('Cancel')
   alert.setAccessoryView(accessory)
+  alert.setIcon(NSImage.alloc().initByReferencingFile(plugin.urlForResourceNamed("icon@2x.png").path()));
+
 
   var responseCode = alert.runModal()
   var sel = accessory.indexOfSelectedItem()
@@ -40,9 +42,20 @@ function createDialogYesNo(msg, button1Text, button2Text ){
   alert.setMessageText(msg)
   alert.addButtonWithTitle(button1Text)
   alert.addButtonWithTitle(button2Text)
+  alert.setIcon(NSImage.alloc().initByReferencingFile(plugin.urlForResourceNamed("icon@2x.png").path()));
 
   var responseCode = alert.runModal()
   return {
     responseCode: responseCode
   };
+}
+
+
+// Snippets
+function displayDialog(message, title) {
+    if (title) {
+        app.displayDialog(message).withTitle(title)
+    } else {
+        app.displayDialog(message)
+    }
 }
