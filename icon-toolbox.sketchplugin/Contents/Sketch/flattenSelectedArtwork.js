@@ -45,35 +45,43 @@ var flattenSelectedArtwork = function(context) {
             }
         } else {
           if (bordered){
-            //log('processing bordered: ' + layer);
+              //log('processing bordered: ' + layer);
               var channel = checkChannel(borderColor);
               outline(layer);
-              //addLayerToChannelBatch(channel);
-              outlinedLayers.push(layer);
+              addLayerToChannelBatch(channel);
+              //outlinedLayers.push(layer);
           } else if (filled){
-            //log('processing filled: ' + layer);
+              //log('processing filled: ' + layer);
               var channel = checkChannel(fillColor);
               addLayerToChannelBatch(channel);
           }
         }
       // Count the layers just for kicks
       processCount++;
-  }
+  } // end loop
+
+  // Bug: The fill layer must be above the border layers. Why?
+ // Suspicion: Layer order of the outlined+darkchannel array must reflect the order in the working space
+  // log(outlinedLayers)
+  log(darkChannel)
 
   // Unify outlined layers
-  batchProcess(outlinedLayers, union);
-
-  // Unify dark and light channels separately
+  // darkChannel.concat(outlinedLayers);
   batchProcess(darkChannel, union);
-  batchProcess(lightChannel, union);
 
-  // Subtract the two channels
-  var bothChannels = darkChannel.concat(lightChannel); // Selects both channels
-  batchProcess(bothChannels, subtract);
 
-  // Flatten combined shape irreducibly
-  batchProcess(selection, flattenCombinedShape);
 
+  // // Unify dark and light channels separately
+  // batchProcess(darkChannel, union);
+  // batchProcess(lightChannel, union);
+  //
+  // // Subtract the two channels
+  // var bothChannels = darkChannel.concat(lightChannel); // Selects both channels
+  // batchProcess(bothChannels, subtract);
+  //
+  // // Flatten combined shape irreducibly
+  // batchProcess(selection, flattenCombinedShape);
+  //
 
   // Done!
   notify("Processed " + processCount + " layers");
