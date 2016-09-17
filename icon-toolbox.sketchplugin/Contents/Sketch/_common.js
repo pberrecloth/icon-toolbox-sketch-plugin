@@ -1,14 +1,5 @@
 // Common functions
 
-function initContext(context) {
-  sketch = context.api(),
-    doc = context.document,
-        plugin = context.plugin,
-        command = context.command,
-        page = doc.currentPage(),
-        artboard = page.currentArtboard(),
-        selection = context.selection
-}
 function clone(layer){
   var clone = layer.duplicate();
   //var cloneFrame = [clone frame];
@@ -67,7 +58,10 @@ function addLayerToChannelBatch(channel){
     lightChannel.push(layer);
     //log('added to lightChannel');
   } else {
-    alert("Icon Toolbox says:\nYour artwork contains mixed colors!", "Your artwork will still be flattened, but non-black or white layers will be ignored.");
+    alert(
+      "Artwork will still be flattened, but non-black or white layers will be ignored.",
+      "Selection contains mixed colors!"
+    );
   }
 }
 function groupLayers(){
