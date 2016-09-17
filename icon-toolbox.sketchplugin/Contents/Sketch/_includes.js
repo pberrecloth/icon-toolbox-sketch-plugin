@@ -1,4 +1,26 @@
-// All dependencies are included here and can be imported into any script using @import '_includes.js';
+// Include using @import '_includes.js';
+
+// Context
+var app = NSApplication.sharedApplication(),
+    selection,
+    plugin,
+    command,
+    doc,
+    page,
+    artboard
+
+function initContext(context) {
+  sketch = context.api(),
+    doc = context.document,
+        plugin = context.plugin,
+        command = context.command,
+        page = doc.currentPage(),
+        artboard = page.currentArtboard(),
+        selection = context.selection
+}
+
+
+// All dependencies are included here
 
 @import '_variables.js';
 @import '_common.js';
