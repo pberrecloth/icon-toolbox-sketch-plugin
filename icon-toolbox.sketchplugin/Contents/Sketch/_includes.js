@@ -1,4 +1,4 @@
-// All dependencies are included here and can be imported into any script using @import 'includes.js';
+// All dependencies are included here and can be imported into any script using @import '_includes.js';
 
 @import '_variables.js';
 @import '_common.js';

@@ -1,12 +1,8 @@
 var flattenSelectedArtwork = function(context) {
 
-  //reference the Sketch Document
-  var sketch = context.api();
-  var doc = context.document;
-  var page = doc.currentPage();
-
-  // Include dependencies
-  @import 'includes.js';
+  // Global variables and functions
+  initContext(context)
+  @import '_includes.js';
 
   // get what's selected
   var selection = context.selection;
