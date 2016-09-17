@@ -17,7 +17,7 @@ var createBounds = function(context) {
 
       if (responseCode == NSAlertFirstButtonReturn) {
         var size = userInput.value;
-        createNewBounds(30, 30, size, size);
+        createNewBounds(0, 0, size, size);// TODO - places in arbitary position, would be nice to place in centre of current view - https://github.com/kenmoore/sketch-better-paste/blob/master/Better%20Paste.sketchplugin
         processCount++;
       }
 
@@ -27,7 +27,6 @@ var createBounds = function(context) {
       if (selection.count() >= 2){
         var userInput = createDialogYesNo(
           'You have more than one layer selected. Create bounds for individual layers or as a group?',
-
           'Create Bounds As Group',
           'Create Bounds Individually'
         );

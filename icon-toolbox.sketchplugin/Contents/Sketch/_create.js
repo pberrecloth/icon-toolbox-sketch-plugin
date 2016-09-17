@@ -20,11 +20,12 @@ function createNewBounds(X, Y, width, height, selection){
   var bounds = MSShapeGroup.shapeWithPath(rect);
   bounds.style().addStylePartOfType(0);
   context.addLayers_([bounds]);
-  
+
   bounds.style().removeAllStyleFills();
 
   var name = "bounds";
   [bounds setName:name];
+
   // TO DO - Once created, move the bounds layer below the selected layer
 
 }
