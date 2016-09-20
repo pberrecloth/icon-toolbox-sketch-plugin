@@ -9,13 +9,6 @@
   "bundleVersion": 1,
   "commands" : [
     {
-      "name" : "Flatten Selected Artwork",
-      "identifier": "flatten",
-      "script" : "flattenSelectedArtwork.js",
-      "handler" : "flattenSelectedArtwork",
-      "shortcut" : "cmd shift ;",
-    },
-    {
       "name" : "Create Artboards",
       "identifier": "createArtboards",
       "script" : "createArtboards.js",
@@ -32,17 +25,31 @@
       "identifier": "createSlices",
       "script" : "createSlices.js",
       "handler" : "createSlices",
-    }
+    },
+    {
+      "name" : "Combine Selected Artwork",
+      "identifier": "combineSelectedArtwork",
+      "script" : "combineSelectedArtwork.js",
+      "handler" : "combineSelectedArtwork",
+      "shortcut" : "",
+    },
+    {
+      "name" : "Flatten Selected Artwork",
+      "identifier": "flattenSelectedArtwork",
+      "script" : "flattenSelectedArtwork.js",
+      "handler" : "flattenSelectedArtwork",
+      "shortcut" : "cmd shift ;",
+    },
   ],
   "menu" : {
     "title": "🔨 Icon Toolbox",
     "items" : [
-      "flatten",
-      "-",
+      "createArtboards",
       "createBounds",
       "createSlices",
-      "createArtboards",
-
+      "-",
+      "combineSelectedArtwork",
+      "flattenSelectedArtwork",
     ],
   }
 }

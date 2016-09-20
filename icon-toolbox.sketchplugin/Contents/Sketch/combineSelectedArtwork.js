@@ -1,4 +1,4 @@
-var flattenSelectedArtwork = function(context) {
+var combineSelectedArtwork = function(context) {
 
   // Global variables and functions
   initContext(context)
@@ -79,9 +79,9 @@ var flattenSelectedArtwork = function(context) {
   var bothChannels = darkChannel.concat(lightChannel); // Selects both channels
   batchProcess(bothChannels, subtract);
 
-  // Flatten combined shape irreducibly
-  batchProcess(selection, flattenCombinedShape);
-
+  // // Flatten combined shape irreducibly
+  // batchProcess(selection, flattenCombinedShape);
+  //
 
   // Done!
   notify("Processed " + processCount + " layers");

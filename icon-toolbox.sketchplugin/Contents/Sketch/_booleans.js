@@ -2,7 +2,8 @@ function flattenCombinedShape(layer) {
   if(!layer.isKindOfClass(MSShapeGroup)) return;
   var action = doc.actionsController().actionWithID("MSFlattenAction");
   if (action.validate()) {
-      action.flattenIgnoringWarning() // suppresses the warning dialog that appears when flattening
+      // action.flattenIgnoringWarning() // suppresses the warning dialog that appears when flattening
+      action.flatten(nil)
   }
 }
 function outline() {
