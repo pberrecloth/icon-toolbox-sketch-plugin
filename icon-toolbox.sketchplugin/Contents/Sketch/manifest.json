@@ -28,19 +28,21 @@
       "handler" : "createBounds",
     },
     {
-      "name" : "Slice Selection",
-      "identifier": "sliceSelection",
-      "script" : "sliceSelection.js",
-      "handler" : "sliceSelection",
+      "name" : "Create Slices",
+      "identifier": "createSlices",
+      "script" : "createSlices.js",
+      "handler" : "createSlices",
     }
   ],
   "menu" : {
     "title": "🔨 Icon Toolbox",
     "items" : [
       "flatten",
+      "-",
       "createBounds",
+      "createSlices",
       "createArtboards",
-      "sliceSelection"
+
     ],
   }
 }

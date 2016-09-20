@@ -62,10 +62,12 @@ Set export color
 Export all icon slices to folders
 Create CSS/index files with icon names, reference SVGs
 Employ Grunt and Grunt-webfont to make webfont
-
+Generate spritesheets
+Generate spritesheet maps in CSS/SASS/JSON
 
 **Version 4 features**
 
+'Grunt watch' using terminal to watch export folder, then render font
 Auto-install of icon font (using a symlink?) then auto-preview in sketch
 Icon font browser for Sketch?
 Craft integration?
@@ -73,4 +75,10 @@ Craft integration?
 
 
 **References**
+https://github.com/bouchenoiremarc/Sketch-Constraints/blob/master/Sketch%20Constraints.sketchplugin/Contents/Sketch/utils.js
+
+http://blog.invisionapp.com/how-to-make-custom-icons-in-sketch-using-boolean-operations/
+
+https://github.com/GeertWille/sketch-export-assets/blob/master/sketch-export-assets.sketchplugin/Contents/Sketch/library/common.js
+https://medium.com/sketch-app-sources/exploring-ways-to-export-clean-svg-icons-with-sketch-the-correct-way-752e73ec4694#.h3bjlrah8
 https://github.com/turbobabr/duplicator/blob/master/Duplicator.sketchplugin/Contents/Sketch/plugin.js

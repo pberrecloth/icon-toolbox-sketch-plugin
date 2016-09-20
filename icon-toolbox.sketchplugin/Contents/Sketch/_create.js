@@ -1,8 +1,9 @@
 // Functions that create new objects and layers
 
-function createNewArtboard(X, Y, width, height){
-  var layer = MSArtboardGroup.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
-  page.addLayers_([layer]);
+function createNewArtboard(X, Y, width, height, selection){
+  var artboard = MSArtboardGroup.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
+  page.addLayers_([artboard]);
+  if(selection) { artboard.addLayers_([selection]); } // TODO: should move the selection onto the artboard but fails
   //doc.currentView().centerRect_(layer.rect());
 }
 function createNewBounds(X, Y, width, height, selection){
@@ -31,13 +32,18 @@ function createNewBounds(X, Y, width, height, selection){
 }
 function createNewSlice(X, Y, width, height, selection){
   if(selection) {
-    var parent = selection.parentGroup();
-  } else {
-    var parent = page;
-  }
+    if(selection.isKindOfClass(MSArtboardGroup)){
+      var context = selection;
+      X = 0;
+      Y = 0;
+    } else {
+      var context = selection.parentGroup();
+    }
+  } else { var context = page; }
+
   var layer = MSSliceLayer.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
   //layer.AddExportFormat('svg'); //doesn't work
-  parent.addLayers_([layer]);
+  context.addLayers_([layer]);
 }
 function createNewGroup(layers){
   // Doesn't work yet
@@ -74,6 +80,23 @@ function createBoundsIndividually(){
 
       // Make slice around layer
       createNewBounds(layerX, layerY, layerWidth, layerHeight, layer);
+
+      processCount++;
+  }
+}
+function createSlicesIndividually(){
+  for(var i = 0; i < selection.count(); i++){
+      var layer = selection[i];
+
+      // Get layer properties
+      var layerFrame = layer.frame();
+      var layerWidth = layerFrame.width();
+      var layerHeight = layerFrame.height();
+      var layerX = layerFrame.x();
+      var layerY = layerFrame.y();
+
+      // Make slice around layer
+      createNewSlice(layerX, layerY, layerWidth, layerHeight, layer);
 
       processCount++;
   }
