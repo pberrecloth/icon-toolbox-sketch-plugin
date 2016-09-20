@@ -1,10 +1,27 @@
 // Functions that create new objects and layers
 
 function createNewArtboard(X, Y, width, height, selection){
+  if(selection) {
+    if(selection.isKindOfClass(MSArtboardGroup)){
+      var context = selection;
+      X = 0;
+      Y = 0;
+    } else {
+      var context = selection.parentGroup();
+    }
+  } else { var context = page; }
+
   var artboard = MSArtboardGroup.alloc().initWithFrame_(NSMakeRect(X, Y, width, height));
-  page.addLayers_([artboard]);
-  if(selection) { artboard.addLayers_([selection]); } // TODO: should move the selection onto the artboard but fails
-  //doc.currentView().centerRect_(layer.rect());
+  context.addLayers_([artboard]);
+
+  if(selection) {
+    var frame = selection.frame()
+    artboard.addLayers_([selection]);
+    context.removeLayer(selection);
+    frame.setX(0);
+    frame.setY(0);
+
+   }
 }
 function createNewBounds(X, Y, width, height, selection){
   if(selection) {
@@ -97,6 +114,23 @@ function createSlicesIndividually(){
 
       // Make slice around layer
       createNewSlice(layerX, layerY, layerWidth, layerHeight, layer);
+
+      processCount++;
+  }
+}
+function createArtboardsIndividually(){
+  for(var i = 0; i < selection.count(); i++){
+      var layer = selection[i];
+
+      // Get layer properties
+      var layerFrame = layer.frame();
+      var layerWidth = layerFrame.width();
+      var layerHeight = layerFrame.height();
+      var layerX = layerFrame.x();
+      var layerY = layerFrame.y();
+
+      // Make slice around layer
+      createNewArtboard(layerX, layerY, layerWidth, layerHeight, layer);
 
       processCount++;
   }

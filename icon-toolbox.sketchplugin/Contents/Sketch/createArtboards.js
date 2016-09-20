@@ -22,24 +22,31 @@ var createArtboards = function(context) {
       }
 
     } else {
-      // if something is selected loop through
-      for(var i = 0; i < selection.count(); i++){
-          var layer = selection[i];
 
-          // Get layer properties
-          var layerFrame = layer.frame();
-          var layerWidth = layerFrame.width();
-          var layerHeight = layerFrame.height();
-          var layerX = layerFrame.x();
-          var layerY = layerFrame.y();
+      // If more than one layer is selected give the option of bounding individually or collectively
+      if (selection.count() >= 2){
+        var userInput = createDialogYesNo(
+          'You have more than one layer selected. Create artboards for individual layers or as a group?',
+          'Create Artboards As Group',
+          'Create Artboards Individually'
+        );
 
-          // Make slice around layer
-          createNewArtboard(layerX, layerY, layerWidth, layerHeight);
+        var responseCode = userInput.responseCode;
 
+        if (responseCode == NSAlertFirstButtonReturn) {
+          // Bounds layers as a group
+          var bounds = MSLayerGroup.groupBoundsForLayers(selection);
+          createNewArtboard(bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height, selection[0]);
           processCount++;
+        } else {
+          // Bound layers individually
+          createArtboardsIndividually();
+        }
+      } else {
+        createArtboardsIndividually();
       }
     }
 
     // Done!
-    notify("Made " + processCount + " artboards");
+    notify("Created " + processCount + " artboard(s)");
   };
