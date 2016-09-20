@@ -40,6 +40,13 @@
       "handler" : "flattenSelectedArtwork",
       "shortcut" : "cmd shift ;",
     },
+    {
+      "name" : "Convert To Black And White",
+      "identifier": "convertToBlackAndWhite",
+      "script" : "convertToBlackAndWhite.js",
+      "handler" : "convertToBlackAndWhite",
+      "shortcut" : "",
+    },
   ],
   "menu" : {
     "title": "🔨 Icon Toolbox",
@@ -48,6 +55,7 @@
       "createBounds",
       "createSlices",
       "-",
+      "convertToBlackAndWhite",
       "combineSelectedArtwork",
       "flattenSelectedArtwork",
     ],

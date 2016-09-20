@@ -11,6 +11,23 @@ function toggleBorder(){
   }
 }
 
+function setBlackOrWhite(target){
+
+  var r = target.color().red()
+  var g = target.color().green()
+  var b = target.color().blue()
+  var brightness = r+g+b
+
+  var lightColor = 'ffffff';
+  var darkColor = '000000';
+
+  if (brightness>1.5){
+    target.color = MSColor.colorWithSVGString('#'+lightColor);
+  } else {
+    target.color = MSColor.colorWithSVGString('#'+darkColor);
+  }
+}
+
 // Remove styles
 // layer.style().removeAllStyleFills()
 // layer.style().removeAllStyleBorders()
